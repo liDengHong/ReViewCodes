@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A40B83511EBC739000C1CAB3 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A40B834F1EBC739000C1CAB3 /* test.mp3 */; };
+		A410055E1EC596BD00AB70D7 /* shortAudio.wav in Resources */ = {isa = PBXBuildFile; fileRef = A410055D1EC596BD00AB70D7 /* shortAudio.wav */; };
+		A42C09DE1EB9E2900018CB89 /* LJVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A42C09DD1EB9E2900018CB89 /* LJVideoPlayerViewController.m */; };
+		A44439D61E55412B00013D6D /* LJPanoramaPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A44439D51E55412B00013D6D /* LJPanoramaPreviewController.m */; };
+		A4542DEB1E69784400EC710D /* LJRecordProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4542DEA1E69784400EC710D /* LJRecordProgressView.m */; };
+		A454E2211EC1C7B700474BC5 /* LJLocationMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A454E2201EC1C7B700474BC5 /* LJLocationMusicViewController.m */; };
+		A46319FE1E65234D001AA9B7 /* LJAVAssetWriterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A46319FD1E65234D001AA9B7 /* LJAVAssetWriterViewController.m */; };
+		A475593D1E5EEAA300DE0B42 /* LJPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A475593C1E5EEAA300DE0B42 /* LJPlayerViewController.m */; };
+		A485039D1E5190490096B4D3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A485039C1E5190490096B4D3 /* main.m */; };
+		A48503A01E5190490096B4D3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A485039F1E5190490096B4D3 /* AppDelegate.m */; };
+		A48503A31E5190490096B4D3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A48503A21E5190490096B4D3 /* ViewController.m */; };
+		A48503A61E5190490096B4D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48503A41E5190490096B4D3 /* Main.storyboard */; };
+		A48503A81E5190490096B4D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48503A71E5190490096B4D3 /* Assets.xcassets */; };
+		A48503AB1E5190490096B4D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A48503A91E5190490096B4D3 /* LaunchScreen.storyboard */; };
+		A485E2D41E80F8690064A760 /* LJRecorderTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = A485E2D31E80F8690064A760 /* LJRecorderTopView.m */; };
+		A485E2D71E8121780064A760 /* LJRecorderBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = A485E2D61E8121780064A760 /* LJRecorderBottomView.m */; };
+		A49E4FFE1EB1CC4200B1A349 /* LJCropVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E4FFD1EB1CC4200B1A349 /* LJCropVideoViewController.m */; };
+		A49E50001EB1CD4E00B1A349 /* LJCropVideoStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A49E4FFF1EB1CD4E00B1A349 /* LJCropVideoStoryboard.storyboard */; };
+		A49E50041EB1FAB400B1A349 /* LJVideoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A49E50031EB1FAB400B1A349 /* LJVideoHelper.m */; };
+		A4A2F5121EC2E400007EC188 /* LJPlayMusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4A2F5111EC2E400007EC188 /* LJPlayMusicViewController.m */; };
+		A4AF3FA71E6EBC060053ACB4 /* LJRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AF3FA61E6EBC060053ACB4 /* LJRecorder.m */; };
+		A4AF3FAA1E7142670053ACB4 /* LJRecordEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A4AF3FA91E7142670053ACB4 /* LJRecordEncoder.m */; };
+		A4C274E51E5ABC04008EA132 /* LJUIImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C274E41E5ABC04008EA132 /* LJUIImagePickerViewController.m */; };
+		A4C274E81E5AC883008EA132 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C274E71E5AC883008EA132 /* UIView+Extension.m */; };
+		A4C274EA1E5AD069008EA132 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C274E91E5AD069008EA132 /* AVKit.framework */; };
+		A4C274EC1E5AD074008EA132 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C274EB1E5AD074008EA132 /* AssetsLibrary.framework */; };
+		A4C274EE1E5AD915008EA132 /* timg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A4C274ED1E5AD915008EA132 /* timg.jpeg */; };
+		A4C274F01E5AEA17008EA132 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4C274EF1E5AEA17008EA132 /* Photos.framework */; };
+		A4C274F51E5AEEDB008EA132 /* LJWeChatVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C274F41E5AEEDB008EA132 /* LJWeChatVideoViewController.m */; };
+		A4E62DA41E63C332008AB02C /* LJUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = A4E62DA31E63C332008AB02C /* LJUtility.m */; };
+		F38C9C560D666174221CE3D6 /* libPods-AudioAndVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B21F98290003B4B8DEFE8F /* libPods-AudioAndVideo.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		06B21F98290003B4B8DEFE8F /* libPods-AudioAndVideo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AudioAndVideo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		269615CED698E89559811D05 /* Pods-AudioAndVideo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioAndVideo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AudioAndVideo/Pods-AudioAndVideo.release.xcconfig"; sourceTree = "<group>"; };
+		A40B834F1EBC739000C1CAB3 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
+		A410055D1EC596BD00AB70D7 /* shortAudio.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shortAudio.wav; sourceTree = "<group>"; };
+		A427F9781E5C2F550046B415 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		A42C09DC1EB9E2900018CB89 /* LJVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJVideoPlayerViewController.h; sourceTree = "<group>"; };
+		A42C09DD1EB9E2900018CB89 /* LJVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJVideoPlayerViewController.m; sourceTree = "<group>"; };
+		A44439D41E55412B00013D6D /* LJPanoramaPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJPanoramaPreviewController.h; sourceTree = "<group>"; };
+		A44439D51E55412B00013D6D /* LJPanoramaPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJPanoramaPreviewController.m; sourceTree = "<group>"; };
+		A4542DE91E69784400EC710D /* LJRecordProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRecordProgressView.h; sourceTree = "<group>"; };
+		A4542DEA1E69784400EC710D /* LJRecordProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRecordProgressView.m; sourceTree = "<group>"; };
+		A454E21F1EC1C7B700474BC5 /* LJLocationMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJLocationMusicViewController.h; sourceTree = "<group>"; };
+		A454E2201EC1C7B700474BC5 /* LJLocationMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJLocationMusicViewController.m; sourceTree = "<group>"; };
+		A46319FC1E65234D001AA9B7 /* LJAVAssetWriterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJAVAssetWriterViewController.h; sourceTree = "<group>"; };
+		A46319FD1E65234D001AA9B7 /* LJAVAssetWriterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJAVAssetWriterViewController.m; sourceTree = "<group>"; };
+		A475593B1E5EEAA300DE0B42 /* LJPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJPlayerViewController.h; sourceTree = "<group>"; };
+		A475593C1E5EEAA300DE0B42 /* LJPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJPlayerViewController.m; sourceTree = "<group>"; };
+		A48503981E5190490096B4D3 /* AudioAndVideo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AudioAndVideo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A485039C1E5190490096B4D3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A485039E1E5190490096B4D3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A485039F1E5190490096B4D3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A48503A11E5190490096B4D3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A48503A21E5190490096B4D3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A48503A51E5190490096B4D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A48503A71E5190490096B4D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A48503AA1E5190490096B4D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A48503AC1E5190490096B4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A485E2D21E80F8690064A760 /* LJRecorderTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRecorderTopView.h; sourceTree = "<group>"; };
+		A485E2D31E80F8690064A760 /* LJRecorderTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRecorderTopView.m; sourceTree = "<group>"; };
+		A485E2D51E8121780064A760 /* LJRecorderBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRecorderBottomView.h; sourceTree = "<group>"; };
+		A485E2D61E8121780064A760 /* LJRecorderBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRecorderBottomView.m; sourceTree = "<group>"; };
+		A49E4FFC1EB1CC4200B1A349 /* LJCropVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJCropVideoViewController.h; sourceTree = "<group>"; };
+		A49E4FFD1EB1CC4200B1A349 /* LJCropVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJCropVideoViewController.m; sourceTree = "<group>"; };
+		A49E4FFF1EB1CD4E00B1A349 /* LJCropVideoStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LJCropVideoStoryboard.storyboard; sourceTree = "<group>"; };
+		A49E50021EB1FAB400B1A349 /* LJVideoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJVideoHelper.h; sourceTree = "<group>"; };
+		A49E50031EB1FAB400B1A349 /* LJVideoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJVideoHelper.m; sourceTree = "<group>"; };
+		A4A0337EBFC531A0D99571A1 /* Pods-AudioAndVideo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AudioAndVideo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AudioAndVideo/Pods-AudioAndVideo.debug.xcconfig"; sourceTree = "<group>"; };
+		A4A2F5101EC2E400007EC188 /* LJPlayMusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJPlayMusicViewController.h; sourceTree = "<group>"; };
+		A4A2F5111EC2E400007EC188 /* LJPlayMusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJPlayMusicViewController.m; sourceTree = "<group>"; };
+		A4AF3FA51E6EBC060053ACB4 /* LJRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRecorder.h; sourceTree = "<group>"; };
+		A4AF3FA61E6EBC060053ACB4 /* LJRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRecorder.m; sourceTree = "<group>"; };
+		A4AF3FA81E7142670053ACB4 /* LJRecordEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJRecordEncoder.h; sourceTree = "<group>"; };
+		A4AF3FA91E7142670053ACB4 /* LJRecordEncoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJRecordEncoder.m; sourceTree = "<group>"; };
+		A4C274E31E5ABC04008EA132 /* LJUIImagePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJUIImagePickerViewController.h; sourceTree = "<group>"; };
+		A4C274E41E5ABC04008EA132 /* LJUIImagePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJUIImagePickerViewController.m; sourceTree = "<group>"; };
+		A4C274E61E5AC883008EA132 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		A4C274E71E5AC883008EA132 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		A4C274E91E5AD069008EA132 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		A4C274EB1E5AD074008EA132 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		A4C274ED1E5AD915008EA132 /* timg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = timg.jpeg; sourceTree = "<group>"; };
+		A4C274EF1E5AEA17008EA132 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		A4C274F31E5AEEDB008EA132 /* LJWeChatVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJWeChatVideoViewController.h; sourceTree = "<group>"; };
+		A4C274F41E5AEEDB008EA132 /* LJWeChatVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJWeChatVideoViewController.m; sourceTree = "<group>"; };
+		A4E62DA21E63C332008AB02C /* LJUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJUtility.h; sourceTree = "<group>"; };
+		A4E62DA31E63C332008AB02C /* LJUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJUtility.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A48503951E5190480096B4D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A4C274F01E5AEA17008EA132 /* Photos.framework in Frameworks */,
+				A4C274EC1E5AD074008EA132 /* AssetsLibrary.framework in Frameworks */,
+				A4C274EA1E5AD069008EA132 /* AVKit.framework in Frameworks */,
+				F38C9C560D666174221CE3D6 /* libPods-AudioAndVideo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3379AFCEB553B13A803D08BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4A0337EBFC531A0D99571A1 /* Pods-AudioAndVideo.debug.xcconfig */,
+				269615CED698E89559811D05 /* Pods-AudioAndVideo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5D6DF84D3EADB7F3B49E1FA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4C274EF1E5AEA17008EA132 /* Photos.framework */,
+				A4C274EB1E5AD074008EA132 /* AssetsLibrary.framework */,
+				A4C274E91E5AD069008EA132 /* AVKit.framework */,
+				06B21F98290003B4B8DEFE8F /* libPods-AudioAndVideo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A410055F1EC596C800AB70D7 /* 音频 */ = {
+			isa = PBXGroup;
+			children = (
+				A410055D1EC596BD00AB70D7 /* shortAudio.wav */,
+				A454E21F1EC1C7B700474BC5 /* LJLocationMusicViewController.h */,
+				A454E2201EC1C7B700474BC5 /* LJLocationMusicViewController.m */,
+				A4A2F5101EC2E400007EC188 /* LJPlayMusicViewController.h */,
+				A4A2F5111EC2E400007EC188 /* LJPlayMusicViewController.m */,
+			);
+			name = "音频";
+			sourceTree = "<group>";
+		};
+		A45302A71E55982E00BEEDFA /* 全屏拍摄并保存到沙盒(AVFoundation) */ = {
+			isa = PBXGroup;
+			children = (
+				A44439D41E55412B00013D6D /* LJPanoramaPreviewController.h */,
+				A44439D51E55412B00013D6D /* LJPanoramaPreviewController.m */,
+			);
+			name = "全屏拍摄并保存到沙盒(AVFoundation)";
+			sourceTree = "<group>";
+		};
+		A4542DE81E69780C00EC710D /* AVAssetWriter录制视频 */ = {
+			isa = PBXGroup;
+			children = (
+				A485E2DD1E8121B80064A760 /* LJAVAssetWriterViewController */,
+				A485E2DC1E8121AB0064A760 /* LJRecordProgressView */,
+				A485E2DB1E8121990064A760 /* LJRecordEncoder */,
+				A485E2DA1E8121930064A760 /* LJRecorder */,
+				A485E2D81E8121800064A760 /* LJRecorderTopView */,
+				A485E2D91E8121880064A760 /* LJRecorderBottomView */,
+			);
+			name = "AVAssetWriter录制视频";
+			sourceTree = "<group>";
+		};
+		A485038F1E5190480096B4D3 = {
+			isa = PBXGroup;
+			children = (
+				A485039A1E5190490096B4D3 /* AudioAndVideo */,
+				A48503991E5190490096B4D3 /* Products */,
+				3379AFCEB553B13A803D08BB /* Pods */,
+				5D6DF84D3EADB7F3B49E1FA9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A48503991E5190490096B4D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A48503981E5190490096B4D3 /* AudioAndVideo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A485039A1E5190490096B4D3 /* AudioAndVideo */ = {
+			isa = PBXGroup;
+			children = (
+				A4C274E61E5AC883008EA132 /* UIView+Extension.h */,
+				A4C274E71E5AC883008EA132 /* UIView+Extension.m */,
+				A4E62DA21E63C332008AB02C /* LJUtility.h */,
+				A4E62DA31E63C332008AB02C /* LJUtility.m */,
+				A485039E1E5190490096B4D3 /* AppDelegate.h */,
+				A485039F1E5190490096B4D3 /* AppDelegate.m */,
+				A48503A11E5190490096B4D3 /* ViewController.h */,
+				A48503A21E5190490096B4D3 /* ViewController.m */,
+				A410055F1EC596C800AB70D7 /* 音频 */,
+				A49E50011EB1E6A100B1A349 /* 时长裁切视频 */,
+				A4542DE81E69780C00EC710D /* AVAssetWriter录制视频 */,
+				A4E62DA51E63F599008AB02C /* 简仿微信小视频 */,
+				A4C274F21E5AEC7B008EA132 /* UIImagePickerViewController */,
+				A45302A71E55982E00BEEDFA /* 全屏拍摄并保存到沙盒(AVFoundation) */,
+				A48503A41E5190490096B4D3 /* Main.storyboard */,
+				A48503A71E5190490096B4D3 /* Assets.xcassets */,
+				A4C274ED1E5AD915008EA132 /* timg.jpeg */,
+				A48503A91E5190490096B4D3 /* LaunchScreen.storyboard */,
+				A485039B1E5190490096B4D3 /* Supporting Files */,
+			);
+			path = AudioAndVideo;
+			sourceTree = "<group>";
+		};
+		A485039B1E5190490096B4D3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A48503AC1E5190490096B4D3 /* Info.plist */,
+				A485039C1E5190490096B4D3 /* main.m */,
+				A427F9781E5C2F550046B415 /* PrefixHeader.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A485E2D81E8121800064A760 /* LJRecorderTopView */ = {
+			isa = PBXGroup;
+			children = (
+				A485E2D21E80F8690064A760 /* LJRecorderTopView.h */,
+				A485E2D31E80F8690064A760 /* LJRecorderTopView.m */,
+			);
+			name = LJRecorderTopView;
+			sourceTree = "<group>";
+		};
+		A485E2D91E8121880064A760 /* LJRecorderBottomView */ = {
+			isa = PBXGroup;
+			children = (
+				A485E2D51E8121780064A760 /* LJRecorderBottomView.h */,
+				A485E2D61E8121780064A760 /* LJRecorderBottomView.m */,
+			);
+			name = LJRecorderBottomView;
+			sourceTree = "<group>";
+		};
+		A485E2DA1E8121930064A760 /* LJRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				A4AF3FA51E6EBC060053ACB4 /* LJRecorder.h */,
+				A4AF3FA61E6EBC060053ACB4 /* LJRecorder.m */,
+			);
+			name = LJRecorder;
+			sourceTree = "<group>";
+		};
+		A485E2DB1E8121990064A760 /* LJRecordEncoder */ = {
+			isa = PBXGroup;
+			children = (
+				A4AF3FA81E7142670053ACB4 /* LJRecordEncoder.h */,
+				A4AF3FA91E7142670053ACB4 /* LJRecordEncoder.m */,
+			);
+			name = LJRecordEncoder;
+			sourceTree = "<group>";
+		};
+		A485E2DC1E8121AB0064A760 /* LJRecordProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				A4542DE91E69784400EC710D /* LJRecordProgressView.h */,
+				A4542DEA1E69784400EC710D /* LJRecordProgressView.m */,
+			);
+			name = LJRecordProgressView;
+			sourceTree = "<group>";
+		};
+		A485E2DD1E8121B80064A760 /* LJAVAssetWriterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A46319FC1E65234D001AA9B7 /* LJAVAssetWriterViewController.h */,
+				A46319FD1E65234D001AA9B7 /* LJAVAssetWriterViewController.m */,
+			);
+			name = LJAVAssetWriterViewController;
+			sourceTree = "<group>";
+		};
+		A49E50011EB1E6A100B1A349 /* 时长裁切视频 */ = {
+			isa = PBXGroup;
+			children = (
+				A49E4FFC1EB1CC4200B1A349 /* LJCropVideoViewController.h */,
+				A49E4FFD1EB1CC4200B1A349 /* LJCropVideoViewController.m */,
+				A49E4FFF1EB1CD4E00B1A349 /* LJCropVideoStoryboard.storyboard */,
+				A49E50021EB1FAB400B1A349 /* LJVideoHelper.h */,
+				A49E50031EB1FAB400B1A349 /* LJVideoHelper.m */,
+				A42C09DC1EB9E2900018CB89 /* LJVideoPlayerViewController.h */,
+				A42C09DD1EB9E2900018CB89 /* LJVideoPlayerViewController.m */,
+				A40B834F1EBC739000C1CAB3 /* test.mp3 */,
+			);
+			name = "时长裁切视频";
+			sourceTree = "<group>";
+		};
+		A4C274F21E5AEC7B008EA132 /* UIImagePickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4C274E31E5ABC04008EA132 /* LJUIImagePickerViewController.h */,
+				A4C274E41E5ABC04008EA132 /* LJUIImagePickerViewController.m */,
+			);
+			name = UIImagePickerViewController;
+			sourceTree = "<group>";
+		};
+		A4E62DA51E63F599008AB02C /* 简仿微信小视频 */ = {
+			isa = PBXGroup;
+			children = (
+				A4C274F31E5AEEDB008EA132 /* LJWeChatVideoViewController.h */,
+				A4C274F41E5AEEDB008EA132 /* LJWeChatVideoViewController.m */,
+				A475593B1E5EEAA300DE0B42 /* LJPlayerViewController.h */,
+				A475593C1E5EEAA300DE0B42 /* LJPlayerViewController.m */,
+			);
+			name = "简仿微信小视频";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A48503971E5190480096B4D3 /* AudioAndVideo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A48503AF1E5190490096B4D3 /* Build configuration list for PBXNativeTarget "AudioAndVideo" */;
+			buildPhases = (
+				EB4B2A471595EF106A1354C8 /* [CP] Check Pods Manifest.lock */,
+				A48503941E5190480096B4D3 /* Sources */,
+				A48503951E5190480096B4D3 /* Frameworks */,
+				A48503961E5190480096B4D3 /* Resources */,
+				052E71EE47F881CA6EC81858 /* [CP] Embed Pods Frameworks */,
+				43D3606DD2965976DD63FC5F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AudioAndVideo;
+			productName = AudioAndVideo;
+			productReference = A48503981E5190490096B4D3 /* AudioAndVideo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A48503901E5190480096B4D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LJ;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = LiJie;
+				TargetAttributes = {
+					A48503971E5190480096B4D3 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9ZYGWUFH29;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = A48503931E5190480096B4D3 /* Build configuration list for PBXProject "AudioAndVideo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A485038F1E5190480096B4D3;
+			productRefGroup = A48503991E5190490096B4D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A48503971E5190480096B4D3 /* AudioAndVideo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A48503961E5190480096B4D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A48503AB1E5190490096B4D3 /* LaunchScreen.storyboard in Resources */,
+				A49E50001EB1CD4E00B1A349 /* LJCropVideoStoryboard.storyboard in Resources */,
+				A40B83511EBC739000C1CAB3 /* test.mp3 in Resources */,
+				A48503A81E5190490096B4D3 /* Assets.xcassets in Resources */,
+				A4C274EE1E5AD915008EA132 /* timg.jpeg in Resources */,
+				A410055E1EC596BD00AB70D7 /* shortAudio.wav in Resources */,
+				A48503A61E5190490096B4D3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		052E71EE47F881CA6EC81858 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioAndVideo/Pods-AudioAndVideo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43D3606DD2965976DD63FC5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AudioAndVideo/Pods-AudioAndVideo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB4B2A471595EF106A1354C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A48503941E5190480096B4D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A454E2211EC1C7B700474BC5 /* LJLocationMusicViewController.m in Sources */,
+				A4542DEB1E69784400EC710D /* LJRecordProgressView.m in Sources */,
+				A4C274E81E5AC883008EA132 /* UIView+Extension.m in Sources */,
+				A4C274F51E5AEEDB008EA132 /* LJWeChatVideoViewController.m in Sources */,
+				A42C09DE1EB9E2900018CB89 /* LJVideoPlayerViewController.m in Sources */,
+				A48503A31E5190490096B4D3 /* ViewController.m in Sources */,
+				A49E50041EB1FAB400B1A349 /* LJVideoHelper.m in Sources */,
+				A4C274E51E5ABC04008EA132 /* LJUIImagePickerViewController.m in Sources */,
+				A4E62DA41E63C332008AB02C /* LJUtility.m in Sources */,
+				A49E4FFE1EB1CC4200B1A349 /* LJCropVideoViewController.m in Sources */,
+				A48503A01E5190490096B4D3 /* AppDelegate.m in Sources */,
+				A4AF3FAA1E7142670053ACB4 /* LJRecordEncoder.m in Sources */,
+				A4AF3FA71E6EBC060053ACB4 /* LJRecorder.m in Sources */,
+				A475593D1E5EEAA300DE0B42 /* LJPlayerViewController.m in Sources */,
+				A4A2F5121EC2E400007EC188 /* LJPlayMusicViewController.m in Sources */,
+				A485E2D71E8121780064A760 /* LJRecorderBottomView.m in Sources */,
+				A46319FE1E65234D001AA9B7 /* LJAVAssetWriterViewController.m in Sources */,
+				A485039D1E5190490096B4D3 /* main.m in Sources */,
+				A485E2D41E80F8690064A760 /* LJRecorderTopView.m in Sources */,
+				A44439D61E55412B00013D6D /* LJPanoramaPreviewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A48503A41E5190490096B4D3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A48503A51E5190490096B4D3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A48503A91E5190490096B4D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A48503AA1E5190490096B4D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A48503AD1E5190490096B4D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A48503AE1E5190490096B4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A48503B01E5190490096B4D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4A0337EBFC531A0D99571A1 /* Pods-AudioAndVideo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9ZYGWUFH29;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AudioAndVideo/PrefixHeader.pch";
+				INFOPLIST_FILE = AudioAndVideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AudioAndVideo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Debug;
+		};
+		A48503B11E5190490096B4D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 269615CED698E89559811D05 /* Pods-AudioAndVideo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9ZYGWUFH29;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/AudioAndVideo/PrefixHeader.pch";
+				INFOPLIST_FILE = AudioAndVideo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = AudioAndVideo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A48503931E5190480096B4D3 /* Build configuration list for PBXProject "AudioAndVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A48503AD1E5190490096B4D3 /* Debug */,
+				A48503AE1E5190490096B4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A48503AF1E5190490096B4D3 /* Build configuration list for PBXNativeTarget "AudioAndVideo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A48503B01E5190490096B4D3 /* Debug */,
+				A48503B11E5190490096B4D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A48503901E5190480096B4D3 /* Project object */;
+}

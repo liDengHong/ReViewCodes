@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gEd-pf-kXO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--时长裁切视频-->
+        <scene sceneID="ora-pt-rxb">
+            <objects>
+                <viewController restorationIdentifier="cropVideo" storyboardIdentifier="cropVideo" title="时长裁切视频" id="gEd-pf-kXO" customClass="LJCropVideoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hit-v2-QHh"/>
+                        <viewControllerLayoutGuide type="bottom" id="kcJ-fE-E1A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="g5R-JC-mtR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFm-Vr-5tL">
+                                <rect key="frame" x="120" y="56" width="130" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="3bo-lo-IPd"/>
+                                    <constraint firstAttribute="height" constant="60" id="UTH-6s-C52"/>
+                                </constraints>
+                                <state key="normal" title="选择视频" backgroundImage="videoRecord">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectVideoClick:" destination="gEd-pf-kXO" eventType="touchUpInside" id="tKH-B0-Jfl"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="输入裁切的开始时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-Ia-nkh">
+                                <rect key="frame" x="20" y="146" width="120" height="30"/>
+                                <color key="backgroundColor" red="0.99594056269999998" green="0.78711789109999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="BGi-ev-145"/>
+                                    <constraint firstAttribute="width" constant="120" id="MI7-b7-DeY"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="输入裁切的结束时间" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sl3-Y4-w1p">
+                                <rect key="frame" x="235" y="146" width="120" height="30"/>
+                                <color key="backgroundColor" red="0.99594056269999998" green="0.78711789109999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="he8-4w-g7C">
+                                <rect key="frame" x="142.5" y="206" width="80" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="qbj-j9-uUU"/>
+                                    <constraint firstAttribute="height" constant="30" id="yaG-ca-Y7y"/>
+                                </constraints>
+                                <state key="normal" title="裁切视频">
+                                    <color key="titleColor" red="0.972296834" green="0.1877550781" blue="0.17929968239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.63645144369999995" green="1" blue="0.33292907420000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cropVideoClick:" destination="gEd-pf-kXO" eventType="touchUpInside" id="0EC-x4-bOf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OUg-NO-8tU">
+                                <rect key="frame" x="117.5" y="316" width="130" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="5Yv-Ce-B3w"/>
+                                    <constraint firstAttribute="height" constant="60" id="lSn-Iu-RR6"/>
+                                </constraints>
+                                <state key="normal" title="添加背景音乐" backgroundImage="videoRecord">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBackgroundMusicClick:" destination="gEd-pf-kXO" eventType="touchUpInside" id="384-B0-dea"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyt-2V-dtY">
+                                <rect key="frame" x="117.5" y="416" width="130" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Zc4-78-F7j"/>
+                                    <constraint firstAttribute="width" constant="130" id="bcR-G1-Abn"/>
+                                </constraints>
+                                <state key="normal" title="播放视频" backgroundImage="videoRecord"/>
+                                <connections>
+                                    <action selector="playVdieoClick:" destination="gEd-pf-kXO" eventType="touchUpInside" id="F2s-za-Jsm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否保留原始音频, 默认保存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0b-b2-hVl">
+                                <rect key="frame" x="16" y="297" width="181" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="181" id="OPv-RL-3qL"/>
+                                    <constraint firstAttribute="height" constant="19" id="qVf-ZE-qdG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzm-9T-tfF">
+                                <rect key="frame" x="53.5" y="331" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="J6A-pE-dV8"/>
+                                    <constraint firstAttribute="width" constant="49" id="fqJ-Au-cv9"/>
+                                </constraints>
+                                <color key="onTintColor" red="0.72799396510000003" green="0.72797214980000002" blue="0.72798454759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="isOrignalSoundClick:" destination="gEd-pf-kXO" eventType="valueChanged" id="8Ke-Ci-pZH"/>
+                                </connections>
+                            </switch>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qyt-2V-dtY" firstAttribute="width" secondItem="OUg-NO-8tU" secondAttribute="width" id="E6a-tT-dmi"/>
+                            <constraint firstItem="HFm-Vr-5tL" firstAttribute="top" secondItem="hit-v2-QHh" secondAttribute="bottom" constant="36" id="IgC-fe-YNM"/>
+                            <constraint firstItem="Qyt-2V-dtY" firstAttribute="height" secondItem="OUg-NO-8tU" secondAttribute="height" id="JCY-UG-enR"/>
+                            <constraint firstItem="Qyt-2V-dtY" firstAttribute="centerX" secondItem="OUg-NO-8tU" secondAttribute="centerX" id="NsV-4M-Xr8"/>
+                            <constraint firstItem="OUg-NO-8tU" firstAttribute="top" secondItem="he8-4w-g7C" secondAttribute="bottom" constant="80" id="PDe-bW-7Gx"/>
+                            <constraint firstItem="OUg-NO-8tU" firstAttribute="centerX" secondItem="he8-4w-g7C" secondAttribute="centerX" id="QzT-Rj-Iko"/>
+                            <constraint firstItem="D0b-b2-hVl" firstAttribute="leading" secondItem="g5R-JC-mtR" secondAttribute="leadingMargin" id="UjW-h2-Sck"/>
+                            <constraint firstItem="HFm-Vr-5tL" firstAttribute="centerX" secondItem="g5R-JC-mtR" secondAttribute="centerX" constant="-2.5" id="WlF-WF-ih8"/>
+                            <constraint firstItem="sl3-Y4-w1p" firstAttribute="height" secondItem="fDV-Ia-nkh" secondAttribute="height" id="aNb-l5-WsC"/>
+                            <constraint firstItem="sl3-Y4-w1p" firstAttribute="width" secondItem="fDV-Ia-nkh" secondAttribute="width" id="eDA-3m-9zC"/>
+                            <constraint firstItem="OUg-NO-8tU" firstAttribute="centerY" secondItem="qzm-9T-tfF" secondAttribute="centerY" id="fTX-JR-Md5"/>
+                            <constraint firstItem="he8-4w-g7C" firstAttribute="centerX" secondItem="HFm-Vr-5tL" secondAttribute="centerX" constant="-2.5" id="g97-G2-LH7"/>
+                            <constraint firstAttribute="trailing" secondItem="sl3-Y4-w1p" secondAttribute="trailing" constant="20" id="ghB-P0-4Yy"/>
+                            <constraint firstItem="sl3-Y4-w1p" firstAttribute="centerY" secondItem="fDV-Ia-nkh" secondAttribute="centerY" id="hLg-zL-FHr"/>
+                            <constraint firstItem="fDV-Ia-nkh" firstAttribute="top" secondItem="HFm-Vr-5tL" secondAttribute="bottom" constant="30" id="lXI-R2-YPY"/>
+                            <constraint firstItem="he8-4w-g7C" firstAttribute="top" secondItem="fDV-Ia-nkh" secondAttribute="bottom" constant="30" id="qmm-tE-3ID"/>
+                            <constraint firstItem="OUg-NO-8tU" firstAttribute="leading" secondItem="qzm-9T-tfF" secondAttribute="trailing" constant="15" id="tQM-bC-rSG"/>
+                            <constraint firstItem="Qyt-2V-dtY" firstAttribute="top" secondItem="OUg-NO-8tU" secondAttribute="bottom" constant="40" id="yDK-ue-IOL"/>
+                            <constraint firstItem="fDV-Ia-nkh" firstAttribute="leading" secondItem="g5R-JC-mtR" secondAttribute="leading" constant="20" id="zmH-BF-mjG"/>
+                            <constraint firstItem="OUg-NO-8tU" firstAttribute="top" secondItem="D0b-b2-hVl" secondAttribute="bottom" id="zui-ga-wcw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="endTimeTextField" destination="sl3-Y4-w1p" id="xPx-cv-uiw"/>
+                        <outlet property="startTimeTextField" destination="fDV-Ia-nkh" id="Ag8-ip-ZNx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4e9-M1-v4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1647.2" y="-1321.8890554722639"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="videoRecord" width="80" height="80"/>
+    </resources>
+</document>

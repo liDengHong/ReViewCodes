@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
+            <connections>
+                <outlet property="loginButton" destination="i1F-nR-LvY" id="xMW-MQ-TnD"/>
+                <outlet property="passwordTextField" destination="nkD-jU-ggF" id="hV9-r8-zBg"/>
+                <outlet property="phoneTextField" destination="bWl-Le-hhJ" id="Pnh-RX-q9G"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bWl-Le-hhJ">
+                    <rect key="frame" x="60" y="170" width="255" height="30"/>
+                    <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nkD-jU-ggF">
+                    <rect key="frame" x="60" y="230" width="255" height="30"/>
+                    <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1F-nR-LvY">
+                    <rect key="frame" x="127.5" y="310" width="120" height="33"/>
+                    <color key="backgroundColor" red="0.67450980390000004" green="0.46274509800000002" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="Liv-lY-Ouw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="登录"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nkD-jU-ggF" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="60" id="78c-0D-t21"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="bWl-Le-hhJ" secondAttribute="trailing" constant="60" id="BwU-zP-tLB"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="nkD-jU-ggF" secondAttribute="trailing" constant="60" id="Cdv-Ui-oNH"/>
+                <constraint firstItem="i1F-nR-LvY" firstAttribute="top" secondItem="nkD-jU-ggF" secondAttribute="bottom" constant="50" id="MBu-jr-tVQ"/>
+                <constraint firstItem="bWl-Le-hhJ" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="150" id="WcW-1y-lHm"/>
+                <constraint firstItem="nkD-jU-ggF" firstAttribute="top" secondItem="bWl-Le-hhJ" secondAttribute="bottom" constant="30" id="bLp-Yh-xT3"/>
+                <constraint firstItem="bWl-Le-hhJ" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="60" id="mO9-OQ-Lap"/>
+                <constraint firstItem="i1F-nR-LvY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oDv-u5-s7Y"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,578 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		61A9D04F2313867F006D3916 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9D04E2313867F006D3916 /* AppDelegate.m */; };
+		61A9D0522313867F006D3916 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9D0512313867F006D3916 /* ViewController.m */; };
+		61A9D0552313867F006D3916 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A9D0532313867F006D3916 /* Main.storyboard */; };
+		61A9D05723138680006D3916 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61A9D05623138680006D3916 /* Assets.xcassets */; };
+		61A9D05A23138680006D3916 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A9D05823138680006D3916 /* LaunchScreen.storyboard */; };
+		61A9D05D23138680006D3916 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9D05C23138680006D3916 /* main.m */; };
+		61A9D06723138681006D3916 /* LJLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9D06623138681006D3916 /* LJLockTests.m */; };
+		61A9D07223138681006D3916 /* LJLockUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 61A9D07123138681006D3916 /* LJLockUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		61A9D06323138681006D3916 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61A9D0422313867F006D3916 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61A9D0492313867F006D3916;
+			remoteInfo = LJLock;
+		};
+		61A9D06E23138681006D3916 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61A9D0422313867F006D3916 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61A9D0492313867F006D3916;
+			remoteInfo = LJLock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		61A9D04A2313867F006D3916 /* LJLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LJLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61A9D04D2313867F006D3916 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		61A9D04E2313867F006D3916 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		61A9D0502313867F006D3916 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		61A9D0512313867F006D3916 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		61A9D0542313867F006D3916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		61A9D05623138680006D3916 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		61A9D05923138680006D3916 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		61A9D05B23138680006D3916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61A9D05C23138680006D3916 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61A9D06223138681006D3916 /* LJLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LJLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61A9D06623138681006D3916 /* LJLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJLockTests.m; sourceTree = "<group>"; };
+		61A9D06823138681006D3916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61A9D06D23138681006D3916 /* LJLockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LJLockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61A9D07123138681006D3916 /* LJLockUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJLockUITests.m; sourceTree = "<group>"; };
+		61A9D07323138681006D3916 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		61A9D0472313867F006D3916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A9D05F23138681006D3916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A9D06A23138681006D3916 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		61A9D0412313867F006D3916 = {
+			isa = PBXGroup;
+			children = (
+				61A9D04C2313867F006D3916 /* LJLock */,
+				61A9D06523138681006D3916 /* LJLockTests */,
+				61A9D07023138681006D3916 /* LJLockUITests */,
+				61A9D04B2313867F006D3916 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		61A9D04B2313867F006D3916 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				61A9D04A2313867F006D3916 /* LJLock.app */,
+				61A9D06223138681006D3916 /* LJLockTests.xctest */,
+				61A9D06D23138681006D3916 /* LJLockUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		61A9D04C2313867F006D3916 /* LJLock */ = {
+			isa = PBXGroup;
+			children = (
+				61A9D04D2313867F006D3916 /* AppDelegate.h */,
+				61A9D04E2313867F006D3916 /* AppDelegate.m */,
+				61A9D0502313867F006D3916 /* ViewController.h */,
+				61A9D0512313867F006D3916 /* ViewController.m */,
+				61A9D0532313867F006D3916 /* Main.storyboard */,
+				61A9D05623138680006D3916 /* Assets.xcassets */,
+				61A9D05823138680006D3916 /* LaunchScreen.storyboard */,
+				61A9D05B23138680006D3916 /* Info.plist */,
+				61A9D05C23138680006D3916 /* main.m */,
+			);
+			path = LJLock;
+			sourceTree = "<group>";
+		};
+		61A9D06523138681006D3916 /* LJLockTests */ = {
+			isa = PBXGroup;
+			children = (
+				61A9D06623138681006D3916 /* LJLockTests.m */,
+				61A9D06823138681006D3916 /* Info.plist */,
+			);
+			path = LJLockTests;
+			sourceTree = "<group>";
+		};
+		61A9D07023138681006D3916 /* LJLockUITests */ = {
+			isa = PBXGroup;
+			children = (
+				61A9D07123138681006D3916 /* LJLockUITests.m */,
+				61A9D07323138681006D3916 /* Info.plist */,
+			);
+			path = LJLockUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		61A9D0492313867F006D3916 /* LJLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61A9D07623138681006D3916 /* Build configuration list for PBXNativeTarget "LJLock" */;
+			buildPhases = (
+				61A9D0462313867F006D3916 /* Sources */,
+				61A9D0472313867F006D3916 /* Frameworks */,
+				61A9D0482313867F006D3916 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LJLock;
+			productName = LJLock;
+			productReference = 61A9D04A2313867F006D3916 /* LJLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		61A9D06123138681006D3916 /* LJLockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61A9D07923138681006D3916 /* Build configuration list for PBXNativeTarget "LJLockTests" */;
+			buildPhases = (
+				61A9D05E23138681006D3916 /* Sources */,
+				61A9D05F23138681006D3916 /* Frameworks */,
+				61A9D06023138681006D3916 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61A9D06423138681006D3916 /* PBXTargetDependency */,
+			);
+			name = LJLockTests;
+			productName = LJLockTests;
+			productReference = 61A9D06223138681006D3916 /* LJLockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		61A9D06C23138681006D3916 /* LJLockUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 61A9D07C23138681006D3916 /* Build configuration list for PBXNativeTarget "LJLockUITests" */;
+			buildPhases = (
+				61A9D06923138681006D3916 /* Sources */,
+				61A9D06A23138681006D3916 /* Frameworks */,
+				61A9D06B23138681006D3916 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				61A9D06F23138681006D3916 /* PBXTargetDependency */,
+			);
+			name = LJLockUITests;
+			productName = LJLockUITests;
+			productReference = 61A9D06D23138681006D3916 /* LJLockUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		61A9D0422313867F006D3916 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Lijie;
+				TargetAttributes = {
+					61A9D0492313867F006D3916 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					61A9D06123138681006D3916 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 61A9D0492313867F006D3916;
+					};
+					61A9D06C23138681006D3916 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 61A9D0492313867F006D3916;
+					};
+				};
+			};
+			buildConfigurationList = 61A9D0452313867F006D3916 /* Build configuration list for PBXProject "LJLock" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 61A9D0412313867F006D3916;
+			productRefGroup = 61A9D04B2313867F006D3916 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				61A9D0492313867F006D3916 /* LJLock */,
+				61A9D06123138681006D3916 /* LJLockTests */,
+				61A9D06C23138681006D3916 /* LJLockUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		61A9D0482313867F006D3916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A9D05A23138680006D3916 /* LaunchScreen.storyboard in Resources */,
+				61A9D05723138680006D3916 /* Assets.xcassets in Resources */,
+				61A9D0552313867F006D3916 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A9D06023138681006D3916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A9D06B23138681006D3916 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		61A9D0462313867F006D3916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A9D0522313867F006D3916 /* ViewController.m in Sources */,
+				61A9D05D23138680006D3916 /* main.m in Sources */,
+				61A9D04F2313867F006D3916 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A9D05E23138681006D3916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A9D06723138681006D3916 /* LJLockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61A9D06923138681006D3916 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61A9D07223138681006D3916 /* LJLockUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61A9D06423138681006D3916 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61A9D0492313867F006D3916 /* LJLock */;
+			targetProxy = 61A9D06323138681006D3916 /* PBXContainerItemProxy */;
+		};
+		61A9D06F23138681006D3916 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61A9D0492313867F006D3916 /* LJLock */;
+			targetProxy = 61A9D06E23138681006D3916 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		61A9D0532313867F006D3916 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61A9D0542313867F006D3916 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		61A9D05823138680006D3916 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61A9D05923138680006D3916 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		61A9D07423138681006D3916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		61A9D07523138681006D3916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		61A9D07723138681006D3916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LJLock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lidenghong.LJLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		61A9D07823138681006D3916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LJLock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lidenghong.LJLock;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		61A9D07A23138681006D3916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LJLockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lidenghong.LJLockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LJLock.app/LJLock";
+			};
+			name = Debug;
+		};
+		61A9D07B23138681006D3916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LJLockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lidenghong.LJLockTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LJLock.app/LJLock";
+			};
+			name = Release;
+		};
+		61A9D07D23138681006D3916 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LJLockUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lidenghong.LJLockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LJLock;
+			};
+			name = Debug;
+		};
+		61A9D07E23138681006D3916 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = LJLockUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = lidenghong.LJLockUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LJLock;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		61A9D0452313867F006D3916 /* Build configuration list for PBXProject "LJLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A9D07423138681006D3916 /* Debug */,
+				61A9D07523138681006D3916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61A9D07623138681006D3916 /* Build configuration list for PBXNativeTarget "LJLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A9D07723138681006D3916 /* Debug */,
+				61A9D07823138681006D3916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61A9D07923138681006D3916 /* Build configuration list for PBXNativeTarget "LJLockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A9D07A23138681006D3916 /* Debug */,
+				61A9D07B23138681006D3916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		61A9D07C23138681006D3916 /* Build configuration list for PBXNativeTarget "LJLockUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A9D07D23138681006D3916 /* Debug */,
+				61A9D07E23138681006D3916 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 61A9D0422313867F006D3916 /* Project object */;
+}

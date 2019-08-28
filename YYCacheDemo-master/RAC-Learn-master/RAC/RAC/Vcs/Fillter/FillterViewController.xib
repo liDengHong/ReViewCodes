@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FillterViewController">
+            <connections>
+                <outlet property="textField" destination="L5O-Bd-ndX" id="hUG-LF-EAB"/>
+                <outlet property="view" destination="HDo-Qs-Wa9" id="N38-d0-NEc"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="HDo-Qs-Wa9">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入内容吧!!!!" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="L5O-Bd-ndX">
+                    <rect key="frame" x="30" y="311.5" width="315" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Thl-Lc-CDc"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="L5O-Bd-ndX" firstAttribute="leading" secondItem="MoG-Ou-Eie" secondAttribute="leading" constant="30" id="c4u-Dv-6uJ"/>
+                <constraint firstItem="MoG-Ou-Eie" firstAttribute="trailing" secondItem="L5O-Bd-ndX" secondAttribute="trailing" constant="30" id="l55-51-5cB"/>
+                <constraint firstItem="L5O-Bd-ndX" firstAttribute="centerY" secondItem="HDo-Qs-Wa9" secondAttribute="centerY" id="m4j-MQ-IEy"/>
+                <constraint firstItem="L5O-Bd-ndX" firstAttribute="centerX" secondItem="HDo-Qs-Wa9" secondAttribute="centerX" id="ztN-5Y-zrU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="MoG-Ou-Eie"/>
+            <point key="canvasLocation" x="26" y="-10"/>
+        </view>
+    </objects>
+</document>

@@ -22,7 +22,9 @@
  同步（sync）        没有开启新的线程，串行执行任务               没有开启新线程，串行执行任务                      死锁卡住不执行                           死锁卡住不执行
  异步（async）       有开启新线程，并发执行任务                  有开启新线程，并发执行任务                        有开启新线程（1 条），串行执行任务          有开启新线程（1 条），串行执行任务
  
- 5.
+ 5. dispatch_after: dispatch_after 方法并不是在指定时间之后才开始执行处理，而是在指定时间之后将任务追加到主队列中。严格来说，这个时间并不是绝对准确的，但想要大致延迟执行任务，dispatch_after 方法是很有效的 (不管在子线程还是主线程中用此方法m,最后等会回到b主线程)
+ 
+ 6. dispatch_apply: 按照指定的次数将指定的任务追加到指定的队列中，并等待全部队列执行结束(异步遍历), 等同于 enumerateObjectsWithOptions 参数为NSEnumerationConcurrent时的遍历, dispatch_apply 比 enumerateObjectsWithOptions 要快很多, 无论是在串行队列，还是并发队列中，dispatch_apply 都会等待全部任务执行完毕
  
  */
 
@@ -42,7 +44,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    [self dispatchBarrierAsync];
+    [self dispatchApply];
 }
 
 
@@ -202,6 +204,55 @@
         sleep(2);
         NSLog(@"任务5 Thread: %@",[NSThread currentThread]);
     });
+    
+}
+
+#pragma mark - dispatch_after
+- (void)after {
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    NSLog(@"asyncMain---begin");
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 2.0 秒后异步追加任务代码到主队列，并开始执行
+        NSLog(@"after---%@",[NSThread currentThread]);  // 打印当前线程
+    });
+}
+
+#pragma mark - dispatch_once
+- (void)once {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        // 只执行 1 次的代码（这里面默认是线程安全的）
+    });
+}
+
+#pragma mark - dispatch_apply
+- (void)dispatchApply {
+    NSMutableArray *array = @[].mutableCopy;
+    for (NSInteger i = 0; i<50000; i++) {
+        [array addObject:@(1)];
+    }
+
+    ///异步遍历
+    NSLog(@"开始shidsjidsjdisjdis   %@",[NSDate date]);
+    ///enumerate遍历
+    [array enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSLog(@"%zd-----%@----%@",idx,array[idx],[NSThread currentThread]);
+    }];
+    
+    ///dispatch_apply遍历
+//    dispatch_apply(array.count, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t index) {
+//        ///异步遍历
+//        NSLog(@"%zd-----%@----%@",index,array[index],[NSThread currentThread]);
+//    });
+
+    NSLog(@"结束shidsjidsjdisjdis   %@",[NSDate date]);
+    NSLog(@"----------%@",[NSThread currentThread]);
+}
+
+#pragma mark - dispatch_group
+- (void)dispatchGroup {
+    dispatch_group_t group = dispatch_group_create();
     
 }
 

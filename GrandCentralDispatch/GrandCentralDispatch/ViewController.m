@@ -8,6 +8,7 @@
 
 /**
  1. 在 GCD 中有两种队列：『串行队列』 和 『并发队列』。两者都符合 FIFO（先进先出）的原则。两者的主要区别是：执行顺序不同，以及开启线程数不同。
+ 
  2. 队列和任务的组合:
  (1)同步执行 + 并发队列          不会开启新线程, 串行执行任务
  (2)异步执行 + 并发队列          会开启新线程, 并发执行任务
@@ -15,6 +16,7 @@
  (4)异步执行 + 串行队列          会开启一个新线程, 串行执行任务
  (5)同步执行 + 主队列            会死锁(主线程有一个特点：主线程会先执行主线程上的代码片段，然后才会去执行放在主队列中的任务。同步执行  dispatch_sync函数的特点：该函数只有在该函数中被添加到某队列的某方法执行完毕之后才会返回。即 方法会等待 task 执行完再返回)
  (6)异步执行 + 主队列            不会开启新的线程, 串行执行任务
+ 
  3. 住线程执行特点: 主线程执行特点，先执行主线程上的代码，再执行主队列中的任务
  
  4. 队列嵌套:
@@ -25,6 +27,26 @@
  5. dispatch_after: dispatch_after 方法并不是在指定时间之后才开始执行处理，而是在指定时间之后将任务追加到主队列中。严格来说，这个时间并不是绝对准确的，但想要大致延迟执行任务，dispatch_after 方法是很有效的 (不管在子线程还是主线程中用此方法m,最后等会回到b主线程)
  
  6. dispatch_apply: 按照指定的次数将指定的任务追加到指定的队列中，并等待全部队列执行结束(异步遍历), 等同于 enumerateObjectsWithOptions 参数为NSEnumerationConcurrent时的遍历, dispatch_apply 比 enumerateObjectsWithOptions 要快很多, 无论是在串行队列，还是并发队列中，dispatch_apply 都会等待全部任务执行完毕
+ 
+ 7 .调用队列组的 dispatch_group_async 先把任务放到队列中，然后将队列放入队列组中。或者使用队列组的 dispatch_group_enter、dispatch_group_leave 组合来实现 dispatch_group_async,调用队列组的 dispatch_group_notify 回到指定线程执行任务。或者使用 dispatch_group_wait 回到当前线程继续向下执行（会阻塞当前线程
+ 
+ 8 . dispatch_group_wait 和 dispatch_group_notify的区别:
+ 1.dispatch_group_wait是当所有任务执行完成之后，才执行之后的操作会阻塞当前线程,
+ 2.dispatch_group_notify不会阻塞当前线程,
+ 
+ 9. dispatch_group_enter、dispatch_group_leave: 在使用dispatch_async , dispatch_group_t, dispatch_group_enter、dispatch_group_leave组合 追加任务时使用相当于 使用dispatch_group_async
+ 
+ 10. dispatch_barrier_async 该方法会等待前边追加到并发队列中的任务全部执行完毕之后，再将指定的任务追加到该异步队列中。然后在 dispatch_barrier_async 方法追加的任务执行完毕之后，异步队列才恢复为一般动作，接着追加任务到该异步队列并开始执行
+ 
+ 11. dispatch_semaphore 是持有计数的信号。类似于过高速路收费站的栏杆。可以通过时，打开栏杆，不可以通过时，关闭栏杆。在 Dispatch Semaphore 中，使用计数来完成这个功能，计数小于 0 时等待，不可通过。计数为 0 或大于 0 时，计数减 1 且不等待，可通过
+    1.Dispatch Semaphore 提供了三个方法：
+        dispatch_semaphore_create：创建一个 Semaphore 并初始化信号的总量
+        dispatch_semaphore_signal：发送一个信号，让信号总量加 1
+        dispatch_semaphore_wait：可以使总信号量减 1，信号总量小于 0 时就会一直等待（阻塞所在线程），否则就可以正常执行。
+    2.信号量的使用前提是：想清楚你需要处理哪个线程等待（阻塞），又要哪个线程继续执行，然后使用信号量。
+    3.Dispatch Semaphore 作用：
+        保持线程同步，将异步执行任务转换为同步执行任务
+        保证线程安全，为线程加锁
  
  */
 
@@ -44,7 +66,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    [self dispatchApply];
+    [self test];
 }
 
 
@@ -189,11 +211,12 @@
         NSLog(@"任务3 Thread: %@",[NSThread currentThread]);
     });
     
-    dispatch_barrier_sync(queue, ^{
+    dispatch_barrier_async(queue, ^{
         sleep(2);
         NSLog(@"任务  Thread: %@",[NSThread currentThread]);
         NSLog(@"执行 dispatch_barrier_sync");
     });
+    
     //任务4
     dispatch_async(queue, ^{
         sleep(2);
@@ -232,7 +255,7 @@
     for (NSInteger i = 0; i<50000; i++) {
         [array addObject:@(1)];
     }
-
+    
     ///异步遍历
     NSLog(@"开始shidsjidsjdisjdis   %@",[NSDate date]);
     ///enumerate遍历
@@ -241,11 +264,11 @@
     }];
     
     ///dispatch_apply遍历
-//    dispatch_apply(array.count, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t index) {
-//        ///异步遍历
-//        NSLog(@"%zd-----%@----%@",index,array[index],[NSThread currentThread]);
-//    });
-
+    //    dispatch_apply(array.count, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(size_t index) {
+    //        ///异步遍历
+    //        NSLog(@"%zd-----%@----%@",index,array[index],[NSThread currentThread]);
+    //    });
+    
     NSLog(@"结束shidsjidsjdisjdis   %@",[NSDate date]);
     NSLog(@"----------%@",[NSThread currentThread]);
 }
@@ -254,7 +277,165 @@
 - (void)dispatchGroup {
     dispatch_group_t group = dispatch_group_create();
     
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"task 1");
+        sleep(2);
+        NSLog(@"task 1 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"task 2");
+        sleep(2);
+        NSLog(@"task 2 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"task 3");
+        sleep(2);
+        NSLog(@"task 3 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+    });
+    
+    dispatch_group_async(group, dispatch_get_global_queue(0, 0), ^{
+        NSLog(@"task 4");
+        sleep(5);
+        NSLog(@"task 4 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+    });
+    
+    
+    //    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    //        NSLog(@"执行结束了");
+    //        NSLog(@"notify Thread---%@",[NSThread currentThread]);  // 打印当前线程
+    //
+    //    });
+    
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    NSLog(@"wait Thread---%@",[NSThread currentThread]);  // 打印当前线程
+    
+}
+
+#pragma mark - leave enter
+- (void)leaveAndEnter {
+    dispatch_group_t group = dispatch_group_create();
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    dispatch_queue_t queue = dispatch_queue_create("leaveAndEnter.com", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_enter(group);
+    dispatch_async(queue, ^{
+        NSLog(@"task 1");
+        sleep(2);
+        NSLog(@"task 1 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        dispatch_group_leave(group);
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_async(queue, ^{
+        NSLog(@"task 2");
+        sleep(2);
+        NSLog(@"task 2 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        dispatch_group_leave(group);
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_async(queue, ^{
+        NSLog(@"task 3");
+        sleep(2);
+        NSLog(@"task 3 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        dispatch_group_leave(group);
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_async(queue, ^{
+        NSLog(@"task 4");
+        sleep(2);
+        NSLog(@"task 4 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        dispatch_group_leave(group);
+    });
+    
+    dispatch_group_enter(group);
+    dispatch_async(queue, ^{
+        NSLog(@"task 5");
+        sleep(2);
+        NSLog(@"task 5 Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        dispatch_group_leave(group);
+    });
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        // 等前面的异步操作都执行完毕后，回到主线程.
+        sleep(2);
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        NSLog(@"group---end");
+    });
+    
+}
+
+#pragma mark - dispatch_semaphore
+#pragma mark-semaphoreSync(线程同步)
+- (void)semaphoreSync {
+    
+    __block int a = 0;
+    __block int b = 0;
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    NSLog(@"semaphore---begin");
+    
+    dispatch_queue_t queue = dispatch_queue_create(0, DISPATCH_QUEUE_CONCURRENT);
+    ///创建信号量
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    
+    dispatch_async(queue, ^{
+        sleep(2);
+        a = 100;
+        NSLog(@"a Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        ///信号量加1
+        dispatch_semaphore_signal(semaphore);
+    });
+    
+    ///信号量减1
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    
+    dispatch_async(queue, ^{
+        sleep(5);
+        b = 300;
+        NSLog(@"b Thread---%@",[NSThread currentThread]);  // 打印当前线程
+        ///信号量加1
+        dispatch_semaphore_signal(semaphore);
+    });
+    
+    ///信号量减1
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+   
+    NSLog(@"semaphore ---- end a = %d, b = %d",a,b);
+}
+
+
+- (void)test {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"A");
+    });
+    
+    NSLog(@"B");
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+    
+    dispatch_sync(queue, ^{
+        NSLog(@"C");
+    });
+    
+    dispatch_async(queue, ^{
+        NSLog(@"D");
+    });
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"E");
+    });
+    
+    [self performSelector:@selector(method) withObject:nil afterDelay:0.0];
+    NSLog(@"F");
+}
+
+- (void)method {
+    NSLog(@"G");
 }
 
 @end
+
+
 

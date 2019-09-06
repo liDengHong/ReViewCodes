@@ -532,33 +532,43 @@ void *threadMethord(int value) {
  dispatch_semaphore_signal(dispatch_semaphore_t dsema);
  
  **/
+///使异步操作变成同步(例如网络请求中需要等一个请求回来后再执行下一个请求)
 - (void)semaphoreExample {
     
-    dispatch_semaphore_t signal = dispatch_semaphore_create(3); ///value 是线程数
+    dispatch_semaphore_t signal = dispatch_semaphore_create(0); ///value 信号量数量
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
         NSLog(@"需要线程同步的操作 1 开始");
-        sleep(1);
+        NSLog(@"1 : %@",[NSThread currentThread]);
+        sleep(3);
         NSLog(@"需要线程同步的操作 1 结束");
+        ///信号量加1
         dispatch_semaphore_signal(signal);
     });
     
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+        ///信号量 -1
         NSLog(@"需要线程同步的操作 2 开始");
-        sleep(1);
+
+        NSLog(@"2 : %@",[NSThread currentThread]);
+        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
+        sleep(4);
         NSLog(@"需要线程同步的操作 2 结束");
+        ///信号量加1
         dispatch_semaphore_signal(signal);
     });
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
         NSLog(@"需要线程同步的操作 3 开始");
+
+        NSLog(@"3 : %@",[NSThread currentThread]);
+        ///信号量 -1
+        dispatch_semaphore_wait(signal, DISPATCH_TIME_FOREVER);
         sleep(1);
         NSLog(@"需要线程同步的操作 3 结束");
-        dispatch_semaphore_signal(signal);
     });
+
 }
 
 @end

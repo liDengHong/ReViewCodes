@@ -406,7 +406,7 @@
     NSLog(@"semaphore ---- end a = %d, b = %d",a,b);
 }
 
-
+#pragma mark - 一个神奇的面试题
 - (void)test {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"A");

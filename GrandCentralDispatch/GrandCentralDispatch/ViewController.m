@@ -17,7 +17,7 @@
  (5)同步执行 + 主队列            会死锁(主线程有一个特点：主线程会先执行主线程上的代码片段，然后才会去执行放在主队列中的任务。同步执行  dispatch_sync函数的特点：该函数只有在该函数中被添加到某队列的某方法执行完毕之后才会返回。即 方法会等待 task 执行完再返回)
  (6)异步执行 + 主队列            不会开启新的线程, 串行执行任务
  
- 3. 住线程执行特点: 主线程执行特点，先执行主线程上的代码，再执行主队列中的任务
+ 3. 主线程执行特点: 主线程执行特点，先执行主线程上的代码，再执行主队列中的任务
  
  4. 队列嵌套:
  区别              『异步执行+并发队列』嵌套『同一个并发队列』    『同步执行+并发队列』嵌套『同一个并发队列』          『异步执行+串行队列』嵌套『同一个串行队列』    『同步执行+串行队列』嵌套『同一个串行队列』
@@ -38,7 +38,7 @@
  
  10. dispatch_barrier_async 该方法会等待前边追加到并发队列中的任务全部执行完毕之后，再将指定的任务追加到该异步队列中。然后在 dispatch_barrier_async 方法追加的任务执行完毕之后，异步队列才恢复为一般动作，接着追加任务到该异步队列并开始执行
  
- 11. dispatch_semaphore 是持有计数的信号。类似于过高速路收费站的栏杆。可以通过时，打开栏杆，不可以通过时，关闭栏杆。在 Dispatch Semaphore 中，使用计数来完成这个功能，计数小于 0 时等待，不可通过。计数为 0 或大于 0 时，计数减 1 且不等待，可通过
+ 11. dispatch_semaphore 是持有计数的信号。类似于过高速路收费站的栏杆。可以通过时，打开栏杆，不可以通过时，关闭栏杆。在 Dispatch Semaphore 中，使用计数来完成这个功能，计数小于等于 0 时等待，不可通过。计数大于 0 时，计数减 1 且不等待，可通过
     1.Dispatch Semaphore 提供了三个方法：
         dispatch_semaphore_create：创建一个 Semaphore 并初始化信号的总量
         dispatch_semaphore_signal：发送一个信号，让信号总量加 1
@@ -47,6 +47,11 @@
     3.Dispatch Semaphore 作用：
         保持线程同步，将异步执行任务转换为同步执行任务
         保证线程安全，为线程加锁
+
+ 12.  dispatch_semaphore的原理: 当dispatch_semaphore_create中的参数(信号)大于0时执行 dispatch_semaphore_wait方法, 并且 信号数-1, 如果dispatch_semaphore_create中的参数(信号)不大于0, 阻塞当前线程, 不做-1操作, 直到执行了dispatch_semaphore_signal信号+1后才会把信号-1, 执行后续操作,相当于是一个while轮询
+ 
+ 12. 注意: 1. 同步操作时，在同一个串行队列中对当前队列sync操作都会导致死锁
+          2. 异步操作时，如果在当前队列async，并不会开启新线程；在其他队列当中再对该串行队列进行asyn操作会开启新线程
  
  */
 
@@ -66,7 +71,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    [self addDataToArray];
+    [self semaphoreSync];
 }
 
 
@@ -467,21 +472,29 @@
     ///使用并发队列来更新数组，如果不使用信号量来进行控制，很有可能因为内存错误而导致程序异常崩溃
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:10000];
-    // 创建为1的信号量
     dispatch_semaphore_t sem = dispatch_semaphore_create(1);
     for (int i = 0; i < 10000; i++) {
         dispatch_async(queue, ^{
-            // 等待信号量
-            dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+            dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);     // 创建为1的信号量 信号 -1
             [arrayM addObject:[NSNumber numberWithInt:i]];
             NSLog(@"%@",[NSNumber numberWithInt:i]);
-            dispatch_semaphore_signal(sem);
-            // 发送信号量
+            dispatch_semaphore_signal(sem); /// 一次add 操作完成后发送信号 +1
         });
     }
 }
 
+#pragma mark - 测试 异步操作时，如果在当前队列async，并不会开启新线程；在其他队列当中再对该串行队列进行asyn操作会开启新线程理论
+- (void)testAsync {
+    dispatch_queue_t queue = dispatch_queue_create("testAsync.com", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(queue, ^{
+        NSLog(@"current thread: %@",[NSThread currentThread]); ///当前队列
+        dispatch_async(queue, ^{
+            NSLog(@"last thread: %@",[NSThread currentThread]); ///在当前队列中异步执行并不会开启新的线程
+        });
+    });
+}
 @end
+
 
 
 

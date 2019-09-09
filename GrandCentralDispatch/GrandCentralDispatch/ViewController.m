@@ -39,19 +39,21 @@
  10. dispatch_barrier_async 该方法会等待前边追加到并发队列中的任务全部执行完毕之后，再将指定的任务追加到该异步队列中。然后在 dispatch_barrier_async 方法追加的任务执行完毕之后，异步队列才恢复为一般动作，接着追加任务到该异步队列并开始执行
  
  11. dispatch_semaphore 是持有计数的信号。类似于过高速路收费站的栏杆。可以通过时，打开栏杆，不可以通过时，关闭栏杆。在 Dispatch Semaphore 中，使用计数来完成这个功能，计数小于等于 0 时等待，不可通过。计数大于 0 时，计数减 1 且不等待，可通过
-    1.Dispatch Semaphore 提供了三个方法：
-        dispatch_semaphore_create：创建一个 Semaphore 并初始化信号的总量
-        dispatch_semaphore_signal：发送一个信号，让信号总量加 1
-        dispatch_semaphore_wait：可以使总信号量减 1，信号总量小于 0 时就会一直等待（阻塞所在线程），否则就可以正常执行。
-    2.信号量的使用前提是：想清楚你需要处理哪个线程等待（阻塞），又要哪个线程继续执行，然后使用信号量。
-    3.Dispatch Semaphore 作用：
-        保持线程同步，将异步执行任务转换为同步执行任务
-        保证线程安全，为线程加锁
-
+ 1.Dispatch Semaphore 提供了三个方法：
+ dispatch_semaphore_create：创建一个 Semaphore 并初始化信号的总量
+ dispatch_semaphore_signal：发送一个信号，让信号总量加 1
+ dispatch_semaphore_wait：可以使总信号量减 1，信号总量小于 0 时就会一直等待（阻塞所在线程），否则就可以正常执行。
+ 2.信号量的使用前提是：想清楚你需要处理哪个线程等待（阻塞），又要哪个线程继续执行，然后使用信号量。
+ 3.Dispatch Semaphore 作用：
+ 保持线程同步，将异步执行任务转换为同步执行任务
+ 保证线程安全，为线程加锁
+ 
  12.  dispatch_semaphore的原理: 当dispatch_semaphore_create中的参数(信号)大于0时执行 dispatch_semaphore_wait方法, 并且 信号数-1, 如果dispatch_semaphore_create中的参数(信号)不大于0, 阻塞当前线程, 不做-1操作, 直到执行了dispatch_semaphore_signal信号+1后才会把信号-1, 执行后续操作,相当于是一个while轮询
  
- 12. 注意: 1. 同步操作时，在同一个串行队列中对当前队列sync操作都会导致死锁
-          2. 异步操作时，如果在当前队列async，并不会开启新线程；在其他队列当中再对该串行队列进行asyn操作会开启新线程
+ 13. 注意: 1. 同步操作时，在同一个串行队列中对当前队列sync操作都会导致死锁
+ 2. 异步操作时，如果在当前队列async，并不会开启新线程；在其他队列当中再对该串行队列进行asyn操作会开启新线程
+ 
+ 14. iOS8之后可以调用dispatch_block_cancel来取消（需要注意必须用dispatch_block_create创建dispatch_block_t)
  
  */
 
@@ -71,7 +73,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    [self semaphoreSync];
+    [self gcdBlockCancel];
 }
 
 
@@ -407,7 +409,7 @@
     
     ///信号量减1
     dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-   
+    
     NSLog(@"semaphore ---- end a = %d, b = %d",a,b);
 }
 
@@ -493,7 +495,34 @@
         });
     });
 }
+
+#pragma mark - dispatch_block_cancel
+- (void)gcdBlockCancel{
+    /// iOS8之后可以调用dispatch_block_cancel来取消（需要注意必须用dispatch_block_create创建dispatch_block_t）
+    dispatch_queue_t queue = dispatch_queue_create("com.gcdtest.www", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_block_t block1 = dispatch_block_create(0, ^{
+        sleep(5);
+        NSLog(@"block1 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_block_t block2 = dispatch_block_create(0, ^{
+        NSLog(@"block2 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_block_t block3 = dispatch_block_create(0, ^{
+        NSLog(@"block3 %@",[NSThread currentThread]);
+    });
+    
+    dispatch_async(queue, block1);
+    dispatch_async(queue, block2);
+    ///取消
+    dispatch_block_cancel(block3);
+}
+
+
 @end
+
 
 
 

@@ -66,7 +66,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
-    [self test];
+    [self addDataToArray];
 }
 
 
@@ -433,6 +433,52 @@
 
 - (void)method {
     NSLog(@"G");
+}
+#pragma mark - semaphort group 搭配使用
+- (void)dispatchGroupAndSemaphort {
+    dispatch_group_t grp = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_queue_create("concurrent.queue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_group_async(grp, queue, ^{
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0); ///创建信号量
+        NSLog(@"task1 begin : %@",[NSThread currentThread]);
+        dispatch_async(queue, ^{
+            NSLog(@"task1 finish : %@",[NSThread currentThread]);
+            dispatch_semaphore_signal(sema); ///发送信号量
+        });
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER); ///阻塞信号量
+    });
+    dispatch_group_async(grp, queue, ^{
+        dispatch_semaphore_t sema = dispatch_semaphore_create(0); ///创建信号量
+        NSLog(@"task2 begin : %@",[NSThread currentThread]);
+        dispatch_async(queue, ^{
+            NSLog(@"task2 finish : %@",[NSThread currentThread]);
+            dispatch_semaphore_signal(sema);  ///发送信号量
+        });
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);  ///阻塞信号量
+    });
+    dispatch_group_notify(grp, dispatch_get_main_queue(), ^{
+        NSLog(@"refresh UI");
+    });
+}
+
+#pragma mark - 利用dispatch_semaphore_t将数据追加到数组
+- (void)addDataToArray {
+    ///使用并发队列来更新数组，如果不使用信号量来进行控制，很有可能因为内存错误而导致程序异常崩溃
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    NSMutableArray *arrayM = [NSMutableArray arrayWithCapacity:10000];
+    // 创建为1的信号量
+    dispatch_semaphore_t sem = dispatch_semaphore_create(1);
+    for (int i = 0; i < 10000; i++) {
+        dispatch_async(queue, ^{
+            // 等待信号量
+            dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+            [arrayM addObject:[NSNumber numberWithInt:i]];
+            NSLog(@"%@",[NSNumber numberWithInt:i]);
+            dispatch_semaphore_signal(sem);
+            // 发送信号量
+        });
+    }
 }
 
 @end

@@ -29,11 +29,36 @@
  将操作加入到队列中：将 NSOperation 对象添加到 NSOperationQueue 对象中。
  之后呢，系统就会自动将 NSOperationQueue 中的 NSOperation 取出来，在新线程中执行操作。下面我们来学习下 NSOperation 和 NSOperationQueue 的基本使用。
  
+ 10.2 NSOperationQueue 常用属性和方法
+ 
+ 取消/暂停/恢复操作
+ - (void)cancelAllOperations; 可以取消队列的所有操作。
+ - (BOOL)isSuspended; 判断队列是否处于暂停状态。 YES 为暂停状态，NO 为恢复状态。
+ - (void)setSuspended:(BOOL)b; 可设置操作的暂停和恢复，YES 代表暂停队列，NO 代表恢复队列。
+ 操作同步
+ - (void)waitUntilAllOperationsAreFinished; 阻塞当前线程，直到队列中的操作全部执行完毕。
+ 添加/获取操作`
+ - (void)addOperationWithBlock:(void (^)(void))block; 向队列中添加一个 NSBlockOperation 类型操作对象。
+ - (void)addOperations:(NSArray *)ops waitUntilFinished:(BOOL)wait; 向队列中添加操作数组，wait 标志是否阻塞当前线程直到所有操作结束
+ - (NSArray *)operations; 当前在队列中的操作数组（某个操作执行结束后会自动从这个数组清除）。
+ - (NSUInteger)operationCount; 当前队列中的操作数。
+ 获取队列
+ + (id)currentQueue; 获取当前队列，如果当前线程不是在 NSOperationQueue 上运行则返回 nil。
+ + (id)mainQueue; 获取主队列。
+ 注意：
+ 
+ 这里的暂停和取消（包括操作的取消和队列的取消）并不代表可以将当前的操作立即取消，而是当当前的操作执行完毕之后不再执行新的操作。
+ 暂停和取消的区别就在于：暂停操作之后还可以恢复操作，继续向下执行；而取消操作之后，所有的操作就清空了，无法再接着执行剩下的操作。
+ 
  */
 
 #import "ViewController.h"
 
 @interface ViewController ()
+
+@property (nonatomic, assign) NSInteger ticketSurplusCount;
+@property (nonatomic, strong) NSLock *lock;
+
 
 @end
 
@@ -42,10 +67,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.lock = [[NSLock alloc] init];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self addExecutionBlock];
+    [self initTicketStatusNotSave];
     
     ///如果在其他线程中执行操作,则会开启新线程
     //    [NSThread detachNewThreadSelector:@selector(useInvocationOperation) toTarget:self withObject:nil];
@@ -97,6 +123,155 @@
     }];
     
     [operation start];
+}
+
+- (void)addOperationToQueue {
+    
+    ///获取住队列
+    NSOperationQueue *mainQueue = [NSOperationQueue mainQueue];
+    ///创建队列(添加到此队列的自动异步执行, 开启新线程)
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    /*1. maxConcurrentOperationCount 默认情况下为-1，表示不进行限制，可进行并发执行。
+      2. maxConcurrentOperationCount 为1时，队列为串行队列。只能串行执行。
+      3. maxConcurrentOperationCount 大于1时，队列为并发队列。操作并发执行，当然这个值不应超过系统限制，即使自己设置一个很大的值，系统也会自动调整为 min{自己设定的值，系统设定的默认最大值}
+     **/
+    queue.maxConcurrentOperationCount = 1;
+    ///添加操作
+    NSOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"操作1");
+        NSLog(@"1 thread:%@",[NSThread currentThread]);
+
+    }];
+    
+    NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(operationAction) object:nil];
+
+    [queue addOperation:blockOperation];
+    [queue addOperation:invocationOperation];
+    
+}
+
+- (void)operationAction {
+    NSLog(@"操作2");
+    NSLog(@"2 thread:%@",[NSThread currentThread]);
+}
+
+#pragma mark - NSOperation 操作依赖
+- (void)addDependency {
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"操作1");
+    }];
+    
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"操作2");
+    }];
+    ///添加依赖
+    [op1 addDependency:op2];
+
+    [queue addOperation:op1];
+    [queue addOperation:op2];    
+}
+
+#pragma mark - NSOperation 优先级
+- (void)operationQueuePriority {
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"操作1");
+    }];
+    
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"操作2");
+    }];
+    
+    NSBlockOperation *op3 = [NSBlockOperation blockOperationWithBlock:^{
+        NSLog(@"操作3");
+    }];
+    ///设置优先级
+    op2.queuePriority = NSOperationQueuePriorityVeryHigh;
+    
+    [queue addOperation:op1];
+    [queue addOperation:op2];
+    [queue addOperation:op3];
+}
+
+#pragma mark - NSOperation、NSOperationQueue 线程间的通信
+- (void)communication {
+    // 1.创建队列
+    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+    
+    // 2.添加操作
+    [queue addOperationWithBlock:^{
+        // 异步进行耗时操作
+        for (int i = 0; i < 2; i++) {
+            [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+            NSLog(@"1---%@", [NSThread currentThread]); // 打印当前线程
+        }
+        
+        // 回到主线程
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            // 进行一些 UI 刷新等操作
+            for (int i = 0; i < 2; i++) {
+                [NSThread sleepForTimeInterval:2]; // 模拟耗时操作
+                NSLog(@"2---%@", [NSThread currentThread]); // 打印当前线程
+            }
+        }];
+    }];
+}
+
+- (void)initTicketStatusNotSave {
+    NSLog(@"currentThread---%@",[NSThread currentThread]); // 打印当前线程
+    
+    self.ticketSurplusCount = 50;
+    
+    // 1.创建 queue1,queue1 代表北京火车票售卖窗口
+    NSOperationQueue *queue1 = [[NSOperationQueue alloc] init];
+    queue1.maxConcurrentOperationCount = 1;
+    
+    // 2.创建 queue2,queue2 代表上海火车票售卖窗口
+    NSOperationQueue *queue2 = [[NSOperationQueue alloc] init];
+    queue2.maxConcurrentOperationCount = 1;
+    
+    // 3.创建卖票操作 op1
+    NSBlockOperation *op1 = [NSBlockOperation blockOperationWithBlock:^{
+        [self saleTicketSafe];
+    }];
+    
+    // 4.创建卖票操作 op2
+    NSBlockOperation *op2 = [NSBlockOperation blockOperationWithBlock:^{
+        [self saleTicketSafe];
+    }];
+    
+    // 5.添加操作，开始卖票
+    [queue1 addOperation:op1];
+    [queue2 addOperation:op2];
+}
+
+
+/**
+ * 售卖火车票(线程安全)
+ */
+- (void)saleTicketSafe {
+    while (1) {
+    
+        // 加锁
+        [self.lock lock];
+        
+        if (self.ticketSurplusCount > 0) {
+            //如果还有票，继续售卖
+            self.ticketSurplusCount--;
+            NSLog(@"%@", [NSString stringWithFormat:@"剩余票数:%ld 窗口:%@", (long)self.ticketSurplusCount, [NSThread currentThread]]);
+            [NSThread sleepForTimeInterval:0.2];
+        }
+        
+        // 解锁
+        [self.lock unlock];
+        
+        if (self.ticketSurplusCount <= 0) {
+            NSLog(@"所有火车票均已售完");
+            break;
+        }
+    }
 }
 
 @end
